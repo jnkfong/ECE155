@@ -1,0 +1,17 @@
+import javax.swing.*;
+
+public class MainStartUp
+{
+  /**Main method to start up program **/
+     public static void main(String[] args)
+     {
+          JFrame mainFrame = new JFrame ("X-Country Tracker v1.0"); //Frame for the main menu 
+          MainModel mainModel = new MainModel(); //Main model class containing methods for main menu
+          MainView mainView = new MainView(mainModel); //Main view class that is the GUI for the main menu
+          
+          mainFrame.setContentPane(mainView);
+          mainFrame.pack();
+          mainFrame.setVisible(true);
+          mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     }
+}

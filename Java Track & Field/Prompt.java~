@@ -1,0 +1,209 @@
+import java.util.*;
+import java.io.*;
+
+public class Prompt extends Object
+{
+     private static Scanner in = new Scanner (System.in);
+     
+     /** Check validity for an int value
+       * @param prompt     The user's input that is passed in
+       */
+     public static int getInt (String prompt)
+     {
+          int data = 0;
+          
+          while (true)
+          {
+               System.out.println (prompt);
+               
+               if (in.hasNextInt())
+               {
+                    data = in.nextInt();
+                    in.nextLine();
+                    break;
+               }
+               else
+               {
+                    String error = in.nextLine();
+                    System.out.println (error + " is not an integer.");
+               }
+          }
+          
+          return data;
+     }
+     
+     /** Check validity for a double value
+       * @param prompt     The user's input that is passed in
+       */
+     public static double getDouble (String prompt)
+     {
+          double data = 0;
+          
+          while (true)
+          {
+               System.out.println (prompt);
+               
+               if (in.hasNextDouble())
+               {
+                    data = in.nextDouble();
+                    in.nextLine();
+                    break;
+               }
+               else
+               {
+                    String error = in.nextLine();
+                    System.out.println (error + " is not a number.");
+               }
+          }
+          
+          return data;
+     }
+     
+     /** Returns a string value
+       * @param prompt     The user's input that is passed in
+       */
+     public static String getString(String prompt)
+     {
+          System.out.println(prompt);
+          return in.nextLine();
+     }
+     
+     /** Check validity for a number within a range of int values
+       * @param prompt     The user's input that is passed in
+       * @param max     The highest integer number in the range
+       * @param min     The lowest integer number in the range
+       */
+     public static int getNumberWithinRange (int max, int min, String prompt)
+     {
+          int data = 0;
+          
+          while (true)
+          {
+               System.out.println (prompt);
+               
+               if (in.hasNextInt())
+               {
+                    data = in.nextInt();
+                    if (data >= min && data <= max) {
+                         in.nextLine();
+                         break;
+                    }                    
+                    else {
+                         String error = in.nextLine();
+                         System.out.println (data + " is out of range.");
+                    }
+               }
+               else
+               {
+                    String error = in.nextLine();
+                    System.out.println (error + " is not an integer.");
+               }
+          }
+          
+          return data;
+     }
+     
+     /** Check validity for a number within a range of double values
+       * @param prompt     The user's input that is passed in
+       * @param max     The highest double value in the range
+       * @param min     The lowest double value in the range
+       */
+     public static double getDoubleWithinRange (double max, double min, String prompt)
+     {
+          double data = 0.0;
+          
+          while (true)
+          {
+               System.out.println (prompt);
+               
+               if (in.hasNextDouble())
+               {
+                    data = in.nextDouble();
+                    if (data >= min && data <= max) {
+                         in.nextLine();
+                         break;
+                    }                    
+                    else {
+                         String error = in.nextLine();
+                         System.out.println (data + " is out of range.");
+                    }
+               }
+               else
+               {
+                    String error = in.nextLine();
+                    System.out.println (error + " is not a double value.");
+               }
+          }
+          
+          return data;
+     }
+     
+     /** Checks for the existence of the file entered (from prompt), then returns the file
+       * @param prompt     The user's input that is passed in
+       */
+     public static File getFile (String prompt)
+     {
+          while (true)
+          {
+               System.out.println(prompt);
+               String file = in.nextLine().trim();
+               File inputFile = new File(file);
+               if (inputFile.exists() != true)
+               {
+                    System.out.println(file + " does not exist.");
+               }
+               else if (inputFile.isDirectory() == true)
+               {
+                    System.out.println(file + " is a directory.");
+               }
+               else if (inputFile.canRead() != true)
+               {
+                    System.out.println(file + " is not readable.");
+               }
+               else
+               {
+                    return inputFile;
+               } 
+          }
+     }
+     
+     /** Returns the input from a file; if file doesn't exist, displays error message
+       * @param prompt     The user's input that is passed in
+       */
+     public static Scanner getInputScanner(String prompt)
+     {
+          try
+          {
+               return new Scanner(Prompt.getFile(prompt));
+          }
+          catch (FileNotFoundException ex)
+          {
+               System.out.println(ex.getMessage());
+               System.out.println("in" + System.getProperty("user.dir"));
+               System.exit(1);
+          }
+          return null;
+     }
+     
+     /** Creates a new output file (user's input)
+       * @param prompt     The user's input that is passed in
+       */
+     public static PrintWriter getPrintWriter (String prompt)
+     {
+          System.out.println(prompt);
+          String fileName = in.nextLine().trim();
+          File outputFile = new File(fileName);
+          
+          try
+          {
+               return new PrintWriter(outputFile);
+          }
+          catch (FileNotFoundException ex)
+          {
+               System.out.println(ex.getMessage());
+               System.out.println("in" + System.getProperty("user.dir"));
+               System.exit(1);
+          }
+          return null;
+     }
+}
