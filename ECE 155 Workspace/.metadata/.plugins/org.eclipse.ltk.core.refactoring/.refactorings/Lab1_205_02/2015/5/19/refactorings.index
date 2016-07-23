@@ -1,0 +1,12 @@
+1431036164473	Move compilation unit
+1431037267276	Change Layout
+1431040586432	Rename field 'scrollView'
+1431044198389	Rename field 'textView1'
+1431044211688	Rename field 'textView2'
+1431044219009	Rename field 'textView3'
+1431044438397	Rename field 'textView4'
+1431044946304	Extracts string 'null' into R.string.zero
+1431058402204	Extracts string 'null' into R.string.btnResetMax
+1431059259835	Rename field 'txtMagMagX'
+1431059266948	Rename field 'txtMagMagY'
+1431059275237	Rename field 'txtMagMagZ'

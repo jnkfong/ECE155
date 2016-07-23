@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Lab1_205_02</string>
+    <string name="action_settings">Settings</string>
+    <string name="txtlighttitle">--Light Sensor --</string>
+	<string name="txtaccelertitle">-- Accelerometer --</string>
+	<string name="txtmaxaccel">-- Max Accelerometer Value --</string>
+	<string name="txtmagnettitle">--Magnetic Field Sensor --</string>
+	<string name="txtmaxmagnet">-- Max Magnetic Field Value --</string>
+	<string name="txtrotationtitle">-- Rotational Sensor --</string>
+	<string name="txtmaxrotation">-- Max Rotational Value --</string>
+	<string name="zero">0</string>
+	<string name="btnResetMax">Reset Max</string>
+</resources>

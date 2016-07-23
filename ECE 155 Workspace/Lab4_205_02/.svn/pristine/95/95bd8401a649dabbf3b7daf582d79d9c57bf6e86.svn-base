@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="InlinedApi">
+        <ignore path="src/ca/uwaterloo/lab1_205_02/MainActivity.java" />
+    </issue>
+</lint>

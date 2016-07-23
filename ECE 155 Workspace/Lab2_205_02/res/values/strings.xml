@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Lab2_205_02</string>
+    <string name="action_settings">Settings</string>
+    <string name="txtTest">Test</string>
+    <string name="strReset">Reset</string>
+    <string name="txtStep">Steps: 0</string>
+    <string name="strLowThresh">Low Threshold: 0.1</string>
+    <string name="strHighThresh">High Threshold: 0.1</string>
+    <string name="strAccuracy">Accuracy: 1</string>
+    <string name="txtRunMode">Running Mode</string>
+   
+</resources>

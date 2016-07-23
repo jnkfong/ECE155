@@ -1,0 +1,47 @@
+{
+  "C:\\Users\\James\\Documents\\workspace\\Lab1_205_02\\src": {
+    "location": "C:\\Users\\James\\Documents\\workspace\\Lab1_205_02\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\James\\Documents\\workspace\\Lab1_205_02\\src\u0027. Skipped."
+  },
+  "C:\\Users\\James\\Documents\\workspace\\appcompat_v7\\libs\\android-support-v7-appcompat.jar": {
+    "location": "C:\\Users\\James\\Documents\\workspace\\appcompat_v7\\libs\\android-support-v7-appcompat.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\James\\Documents\\workspace\\appcompat_v7\\libs\\android-support-v7-appcompat.jar\u0027. Neither fingerprint \u00276044ad7bc085fee37a50e494aff6dd5f3869021e\u0027 nor symbolic name \u0027android-support-v7-appcompat\u0027 are known."
+  },
+  "C:\\Users\\James\\Documents\\workspace\\Lab1_205_02\\gen": {
+    "location": "C:\\Users\\James\\Documents\\workspace\\Lab1_205_02\\gen",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\James\\Documents\\workspace\\Lab1_205_02\\gen\u0027. Skipped."
+  },
+  "C:\\Users\\James\\AppData\\Local\\Android\\sdk1\\platforms\\android-22\\android.jar": {
+    "location": "C:\\Users\\James\\AppData\\Local\\Android\\sdk1\\platforms\\android-22\\android.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\James\\AppData\\Local\\Android\\sdk1\\platforms\\android-22\\android.jar\u0027. Neither fingerprint \u002779cb26a0e1c81773e9354a01d671ef3c465856d8\u0027 nor symbolic name \u0027android\u0027 are known."
+  },
+  "C:\\Users\\James\\Documents\\workspace\\Lab2_205_02\\gen": {
+    "location": "C:\\Users\\James\\Documents\\workspace\\Lab2_205_02\\gen",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\James\\Documents\\workspace\\Lab2_205_02\\gen\u0027. Skipped."
+  },
+  "C:\\Users\\James\\Documents\\workspace\\Lab2_205_02\\src": {
+    "location": "C:\\Users\\James\\Documents\\workspace\\Lab2_205_02\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\James\\Documents\\workspace\\Lab2_205_02\\src\u0027. Skipped."
+  },
+  "C:\\Users\\James\\Documents\\workspace\\Lab3_205_02\\gen": {
+    "location": "C:\\Users\\James\\Documents\\workspace\\Lab3_205_02\\gen",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\James\\Documents\\workspace\\Lab3_205_02\\gen\u0027. Skipped."
+  },
+  "C:\\Users\\James\\Documents\\workspace\\Lab4_205_02\\src": {
+    "location": "C:\\Users\\James\\Documents\\workspace\\Lab4_205_02\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\James\\Documents\\workspace\\Lab4_205_02\\src\u0027. Skipped."
+  },
+  "C:\\Users\\James\\Documents\\workspace\\Lab4_205_02\\gen": {
+    "location": "C:\\Users\\James\\Documents\\workspace\\Lab4_205_02\\gen",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\James\\Documents\\workspace\\Lab4_205_02\\gen\u0027. Skipped."
+  }
+}

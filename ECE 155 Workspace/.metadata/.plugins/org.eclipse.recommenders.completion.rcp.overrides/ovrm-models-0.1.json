@@ -1,0 +1,7 @@
+{
+  "C:\\Users\\James\\AppData\\Local\\Android\\sdk1\\platforms\\android-22\\android.jar": {
+    "location": "C:\\Users\\James\\AppData\\Local\\Android\\sdk1\\platforms\\android-22\\android.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\James\\AppData\\Local\\Android\\sdk1\\platforms\\android-22\\android.jar\u0027. Neither fingerprint \u002779cb26a0e1c81773e9354a01d671ef3c465856d8\u0027 nor symbolic name \u0027android\u0027 are known."
+  }
+}

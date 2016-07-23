@@ -1,0 +1,188 @@
+    // -------------------------------------------------------------------
+    // Department of Electrical and Computer Engineering
+    // University of Waterloo
+    //
+	// Group Number:205-02
+    // Student Names: Lingyi Li, Bill Schoen, James Fong
+    // User-ids:l352li, wschoen, jnkfong
+    //
+    // Assignment: <Lab2>
+    // Submission Date: June 18th, 2015
+    //
+    // We declare that, other than the acknowledgments listed below,
+    // this program is my original work.
+    //
+    // Acknowledgments:
+    // Except for the materials provided in the assignment requirements. 
+    // All the code is our own work.
+    // -------------------------------------------------------------------
+package ca.uwaterloo.lab2_205_02;
+
+import java.util.Arrays;
+
+import android.support.v7.app.ActionBarActivity;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.SeekBar;
+import android.widget.TextView;
+
+
+public class MainActivity extends ActionBarActivity {
+	
+	private LineGraphView graph;  
+	private SensorManager sensorManager;
+    private Sensor accelerometer;
+    private AccSensorEventListener a;
+    private Button btnReset;
+ 	private TextView accView;
+ 	private TextView stepView;
+ 	private TextView lowThreshView;
+ 	private TextView highThreshView;
+ 	private RadioButton rdoRun;
+ 	private SeekBar sbFilterLvl;
+ 	private SeekBar sbLowThresh;
+ 	private SeekBar sbHighThresh;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    	//creates layout for the accelerometer graph
+    	LinearLayout layGraph;
+    	
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        //Retrieve TextViews that will appear on the application 
+        accView = (TextView)findViewById(R.id.txtAcc);
+        stepView = (TextView)findViewById(R.id.txtStepData);
+        lowThreshView = (TextView)findViewById(R.id.txtLowThresh);
+        highThreshView = (TextView)findViewById(R.id.txtHighThresh);
+        
+        //Retrieve Button to reset step counter
+        btnReset = (Button)findViewById(R.id.btnReset);
+        
+        //Retrieve linear layout from application
+        layGraph = (LinearLayout)findViewById(R.id.mainLayout);
+        
+        //Declare graph for step counter display signal
+        graph = new LineGraphView(getApplicationContext(),100, Arrays.asList("x", "y", "z"));
+        graph.setVisibility(View.VISIBLE);
+        
+        //Add graph view into the existing linear layout
+        layGraph.addView(graph, 0);
+
+        //Initialize and declare accelerometer sensor
+        sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+        a = new AccSensorEventListener(accView,stepView,lowThreshView, highThreshView, graph);
+        sensorManager.registerListener(a, accelerometer,SensorManager.SENSOR_DELAY_FASTEST);
+        
+        //Retrieve SeekBar for accuracy change and override method to change accuracy level upon change 
+        sbFilterLvl =(SeekBar)findViewById(R.id.sb_filterLvl);        
+        sbFilterLvl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){    
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+							a.changeFilter(progress+1);				
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}       	
+        });
+        
+        //Retrieve SeekBar for low threshold change and override method to change threshold level upon change 
+        sbLowThresh = (SeekBar)findViewById(R.id.sb_LowThresh);
+        sbLowThresh.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+					a.changeLowThresh((float)(((float)progress+1.0)/10.0));				
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}       	
+        });
+        
+        //Retrieve SeekBar for high threshold change and override method to change threshold level upon change 
+        sbHighThresh = (SeekBar)findViewById(R.id.sb_HighThresh);
+        sbHighThresh.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+					a.changeHighThresh((float)(((float)progress+1.0)/10.0));				
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}       	
+        });
+        //Initial general threshold and accuracy on start
+        sbFilterLvl.setProgress(99);
+        sbHighThresh.setProgress(35);
+    	sbLowThresh.setProgress(12);
+    	
+    	//Override Button method to reset step counter to 0
+        btnReset.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				a.resetStep();
+			}
+		});
+       
+        //Retrieve Radio button and override methods to switch between running and walking
+        rdoRun = (RadioButton)findViewById(R.id.rdoRun);
+        rdoRun.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            	sbFilterLvl.setProgress(99);
+                if(rdoRun.getText().equals("Running Mode")){
+                	sbHighThresh.setProgress(86);
+                	sbLowThresh.setProgress(14);
+                	rdoRun.setChecked(false);
+                	rdoRun.setText("Walking Mode");
+                }
+                else
+                {
+                	sbHighThresh.setProgress(35);
+                	sbLowThresh.setProgress(12);
+                	rdoRun.setChecked(false);
+                	rdoRun.setText("Running Mode");
+                }
+            }	
+        });
+   	
+        
+    }
+   
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+  
+}

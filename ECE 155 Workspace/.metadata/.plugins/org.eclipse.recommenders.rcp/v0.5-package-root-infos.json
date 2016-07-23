@@ -1,0 +1,54 @@
+[
+  {
+    "symbolicName": "android-support-v4",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "605c447c20ca216b5556af9f215af5d4bba1b117",
+    "jarFileModificationDate": "2015-05-03T01:33:04.154-04:00",
+    "location": "C:\\Users\\James\\Documents\\workspace\\appcompat_v7\\libs\\android-support-v4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "appcompat_v7",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "1fddbdc1f0061cbbc04112bfffb38df5e2760329",
+    "jarFileModificationDate": "2015-07-14T19:53:24.346-04:00",
+    "location": "C:\\Users\\James\\Documents\\workspace\\appcompat_v7\\bin\\appcompat_v7.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android-support-v7-appcompat",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "6044ad7bc085fee37a50e494aff6dd5f3869021e",
+    "jarFileModificationDate": "2015-05-03T01:33:04.204-04:00",
+    "location": "C:\\Users\\James\\Documents\\workspace\\appcompat_v7\\libs\\android-support-v7-appcompat.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "79cb26a0e1c81773e9354a01d671ef3c465856d8",
+    "jarFileModificationDate": "2015-03-30T19:59:54-04:00",
+    "location": "C:\\Users\\James\\AppData\\Local\\Android\\sdk1\\platforms\\android-22\\android.jar",
+    "javaRuntime": false
+  }
+]
